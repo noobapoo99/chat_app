@@ -13,7 +13,7 @@ import Notification from "./components/notification/notification.jsx";
 //import HomePage from "./components/HomePage.jsx";
 
 function App() {
-  const user = true;
+  const user = false;
   return (
     <div className="container_1">
       {user ? (

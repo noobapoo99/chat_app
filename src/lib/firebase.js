@@ -1,10 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: import.meta.env,
+  apiKey: "AIzaSyAcBINIeOWhhtX5QSmJJSvRG2wXteYf2XU",
   authDomain: "chat-app-badf4.firebaseapp.com",
   projectId: "chat-app-badf4",
   storageBucket: "chat-app-badf4.appspot.com",
