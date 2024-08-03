@@ -11,24 +11,30 @@ import Login_1 from "./components/Login_1/login_1.jsx";
 import Notification from "./components/notification/notification.jsx";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./lib/firebase.js";
+import { useUserStore } from "./lib/userStore.js";
 //import Notification from "./components/notification/notification.jsx";
 //import Notification from "./components/notification/notification.jsx";
 //import HomePage from "./components/HomePage.jsx";
 
 const App = () => {
-  const user = false;
-
+  // const user = false;
+  const { currentUser, isLoading, fetchUserInfo } = useUserStore();
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user) => {
-      console.log(user);
+      fetchUserInfo(user.uid);
     });
     return () => {
       unSub();
     };
-  }, []);
+  }, [fetchUserInfo]);
+
+  //console.log(currentUser);
+
+  if (isLoading) return <div className="Loading">Loading..</div>;
+
   return (
     <div className="container_1">
-      {user ? (
+      {currentUser ? (
         <>
           <List />
           <Chat />
